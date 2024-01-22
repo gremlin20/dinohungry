@@ -1,0 +1,121 @@
+[gd_scene load_steps=9 format=3 uid="uid://dtn0x4bj864rn"]
+
+[ext_resource type="PackedScene" uid="uid://cc6kv7qsohnhq" path="res://game1.tscn" id="1_1yvhg"]
+[ext_resource type="Texture2D" uid="uid://cf3nkn7pc8xlj" path="res://Background/NightTownParallax/night-town-background-previewx1.png" id="2_4hgvq"]
+[ext_resource type="Texture2D" uid="uid://k2m5bka1tto1" path="res://Background/NightTownParallax/night-town-background-far-buildings.png" id="3_40yb0"]
+[ext_resource type="Texture2D" uid="uid://cksjp5gilncws" path="res://Game-Asset-Art-Carol-Salvato/Game-Asset-Carol-Salvato/tile-set-ground-earth-rock-grass.png" id="4_xhdjr"]
+[ext_resource type="Texture2D" uid="uid://cf3g3ffy5kpdq" path="res://Game-Asset-Art-Carol-Salvato/Game-Asset-Carol-Salvato/tile-set-ground-earth-rock.png" id="5_0fhur"]
+[ext_resource type="PackedScene" uid="uid://r5yfeabnyiqo" path="res://enemy.tscn" id="6_yyebo"]
+[ext_resource type="Script" path="res://enemy.gd" id="7_i7d8j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anf8t"]
+size = Vector2(368, 112)
+
+[node name="Root" instance=ExtResource("1_1yvhg")]
+
+[node name="Background1" parent="Map/ParallaxBackground/ParallaxLayer" index="0"]
+texture = ExtResource("2_4hgvq")
+
+[node name="Sprite2D" parent="Map/ParallaxBackground/ParallaxLayer" index="1"]
+visible = false
+position = Vector2(1093, -301)
+scale = Vector2(17.0946, 24.6684)
+texture = ExtResource("2_4hgvq")
+
+[node name="Sprite2D2" parent="Map/ParallaxBackground/ParallaxLayer" index="2"]
+visible = false
+position = Vector2(15.4728, 313.529)
+scale = Vector2(16.0842, 19.8618)
+texture = ExtResource("3_40yb0")
+
+[node name="Tanah7" type="StaticBody2D" parent="Map/Terrain" index="0"]
+position = Vector2(-2291, -359)
+
+[node name="GroundEarth" type="Sprite2D" parent="Map/Terrain/Tanah7" index="0"]
+position = Vector2(-90, 1)
+texture = ExtResource("4_xhdjr")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Map/Terrain/Tanah7" index="1"]
+texture = ExtResource("5_0fhur")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Map/Terrain/Tanah7" index="2"]
+position = Vector2(88, 0)
+texture = ExtResource("5_0fhur")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Map/Terrain/Tanah7" index="3"]
+position = Vector2(-183, 2)
+texture = ExtResource("5_0fhur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Terrain/Tanah7" index="4"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")
+
+[node name="Tanah" parent="Map/Terrain" index="1"]
+position = Vector2(-1522, 274)
+
+[node name="Tanah2" parent="Map/Terrain" index="2"]
+position = Vector2(-1101, 668)
+
+[node name="Tanah3" parent="Map/Terrain" index="3"]
+position = Vector2(-499, 461)
+
+[node name="Tanah4" parent="Map/Terrain" index="4"]
+position = Vector2(38, 319)
+
+[node name="Tanah6" parent="Map/Terrain" index="6"]
+position = Vector2(517, 83)
+
+[node name="Tanah8" type="StaticBody2D" parent="Map/Terrain" index="7"]
+position = Vector2(-1892, -54)
+
+[node name="GroundEarth" type="Sprite2D" parent="Map/Terrain/Tanah8" index="0"]
+position = Vector2(-90, 1)
+texture = ExtResource("4_xhdjr")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Map/Terrain/Tanah8" index="1"]
+texture = ExtResource("5_0fhur")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Map/Terrain/Tanah8" index="2"]
+position = Vector2(88, 0)
+texture = ExtResource("5_0fhur")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Map/Terrain/Tanah8" index="3"]
+position = Vector2(-183, 2)
+texture = ExtResource("5_0fhur")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Terrain/Tanah8" index="4"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")
+
+[node name="Dino" parent="." index="1"]
+position = Vector2(-2305, -549)
+
+[node name="Area2D" parent="Drumstick" index="0"]
+position = Vector2(-977, 373)
+
+[node name="enemy2" parent="." index="7"]
+position = Vector2(-2000, -374)
+
+[node name="enemy" parent="." index="8"]
+position = Vector2(-1213, 5)
+
+[node name="enemy4" parent="." index="9" groups=["EnemyGroup"] instance=ExtResource("6_yyebo")]
+position = Vector2(1005, 354)
+script = ExtResource("7_i7d8j")
+
+[node name="enemy5" parent="." index="10" groups=["EnemyGroup"] instance=ExtResource("6_yyebo")]
+position = Vector2(-76, 176)
+script = ExtResource("7_i7d8j")
+
+[node name="enemy6" parent="." index="11" groups=["EnemyGroup"] instance=ExtResource("6_yyebo")]
+position = Vector2(392, -328)
+script = ExtResource("7_i7d8j")
+
+[node name="enemy7" parent="." index="12" groups=["EnemyGroup"] instance=ExtResource("6_yyebo")]
+position = Vector2(-594, 320)
+script = ExtResource("7_i7d8j")
+
+[node name="enemy3" parent="." index="13"]
+position = Vector2(-1193, 527)
+
+[editable path="Map"]

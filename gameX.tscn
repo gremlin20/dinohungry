@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://bf6y8i7fomc7p"]
+
+[ext_resource type="PackedScene" uid="uid://cc6kv7qsohnhq" path="res://game1.tscn" id="1_x18m1"]
+[ext_resource type="PackedScene" uid="uid://cp4b7pbf5577h" path="res://drumstick.tscn" id="2_emcc2"]
+
+[node name="Root" instance=ExtResource("1_x18m1")]
+metadata/_edit_horizontal_guides_ = [-876.0, -867.0, 1142.0]
+
+[node name="Tanah" parent="Map/Terrain" index="0"]
+position = Vector2(-907, 654)
+
+[node name="Tanah2" parent="Map/Terrain" index="1"]
+position = Vector2(-442, 645)
+
+[node name="Area2D2" parent="Drumstick" index="1"]
+position = Vector2(-590, 429)
+
+[node name="Area2D" parent="." index="7" instance=ExtResource("2_emcc2")]
+position = Vector2(-933, 400)
+
+[editable path="Map"]

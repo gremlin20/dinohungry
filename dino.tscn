@@ -1,0 +1,103 @@
+[gd_scene load_steps=14 format=3 uid="uid://cm7xves2tm8tb"]
+
+[ext_resource type="Script" path="res://dino.gd" id="1_83fwa"]
+[ext_resource type="Texture2D" uid="uid://b8t5w0f687cs0" path="res://asset/Dino revisi/End game 01.png" id="1_dvmk8"]
+[ext_resource type="Texture2D" uid="uid://ddu473v2lffnu" path="res://asset/Dino revisi/End game 02.png" id="2_wure2"]
+[ext_resource type="Texture2D" uid="uid://cli5rf8w7irdj" path="res://asset/Dino revisi/Eat.png" id="3_vkmfc"]
+[ext_resource type="Texture2D" uid="uid://drxyxjfmaam0m" path="res://asset/Dino revisi/Jumping 01.png" id="4_j736w"]
+[ext_resource type="Texture2D" uid="uid://c4ncpd8a6co00" path="res://asset/Dino revisi/Jumping 02.png" id="5_jrqne"]
+[ext_resource type="Texture2D" uid="uid://b3urhxih2bef6" path="res://asset/Dino revisi/Walk 01.png" id="6_efwl5"]
+[ext_resource type="Texture2D" uid="uid://cirov706rgyaf" path="res://asset/Dino revisi/Landing.png" id="7_w6rpk"]
+[ext_resource type="Texture2D" uid="uid://b1d27kfuhv3lb" path="res://asset/Dino revisi/Walk 02.png" id="8_w6ggm"]
+[ext_resource type="Texture2D" uid="uid://clhp6v6dlkcv1" path="res://asset/Dino revisi/Run.png" id="9_uukn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mpooe"]
+radius = 103.044
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xr08"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_dvmk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_wure2")
+}],
+"loop": true,
+"name": &"Die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vkmfc")
+}],
+"loop": true,
+"name": &"Eat",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_j736w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jrqne")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_efwl5")
+}],
+"loop": true,
+"name": &"Ready",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_w6rpk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_efwl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_w6ggm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_uukn4")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p7uxc"]
+radius = 83.0
+height = 166.0
+
+[node name="Dino" type="CharacterBody2D" groups=["DinoGroup"]]
+script = ExtResource("1_83fwa")
+
+[node name="HitArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea"]
+position = Vector2(-29, 4)
+shape = SubResource("CircleShape2D_mpooe")
+
+[node name="RaptorSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-4.99997, 0.999996)
+scale = Vector2(0.326172, 0.380556)
+sprite_frames = SubResource("SpriteFrames_1xr08")
+animation = &"Walk"
+frame_progress = 0.994693
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-30, 24)
+shape = SubResource("CapsuleShape2D_p7uxc")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visible = false
+
+[connection signal="body_entered" from="HitArea" to="." method="_on_hit_area_body_entered"]

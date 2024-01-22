@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://crbr6yuvek44j"]
+
+[ext_resource type="Texture2D" uid="uid://cuo4mm2vlpoi3" path="res://Background/Cemetery/background.png" id="1_w3vi8"]
+[ext_resource type="Texture2D" uid="uid://cko5g1ahs8f72" path="res://Background/Cemetery/mountains.png" id="2_cttuf"]
+[ext_resource type="Texture2D" uid="uid://c8x76cyqk3xtk" path="res://Background/Cemetery/graveyard.png" id="3_lkd4o"]
+[ext_resource type="Texture2D" uid="uid://cksjp5gilncws" path="res://Game-Asset-Art-Carol-Salvato/Game-Asset-Carol-Salvato/tile-set-ground-earth-rock-grass.png" id="5_yibrq"]
+[ext_resource type="Texture2D" uid="uid://cf3g3ffy5kpdq" path="res://Game-Asset-Art-Carol-Salvato/Game-Asset-Carol-Salvato/tile-set-ground-earth-rock.png" id="6_gsrt6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_anf8t"]
+size = Vector2(368, 112)
+
+[node name="Map" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scroll_limit_end = Vector2(1000, 1000)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Background1" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(10, 10)
+texture = ExtResource("1_w3vi8")
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(0, -55)
+scale = Vector2(19.9792, 4.7486)
+texture = ExtResource("2_cttuf")
+
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(-1.24992, 550)
+scale = Vector2(10.0117, 9.17683)
+texture = ExtResource("3_lkd4o")
+
+[node name="Terrain" type="Node2D" parent="."]
+
+[node name="Tanah" type="StaticBody2D" parent="Terrain"]
+position = Vector2(-948, 829)
+
+[node name="GroundEarth" type="Sprite2D" parent="Terrain/Tanah"]
+position = Vector2(-90, 1)
+texture = ExtResource("5_yibrq")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Terrain/Tanah"]
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Terrain/Tanah"]
+position = Vector2(88, 0)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Terrain/Tanah"]
+position = Vector2(-183, 2)
+texture = ExtResource("6_gsrt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Tanah"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")
+
+[node name="Tanah2" type="StaticBody2D" parent="Terrain"]
+position = Vector2(-455, 628)
+
+[node name="GroundEarth" type="Sprite2D" parent="Terrain/Tanah2"]
+position = Vector2(-93, 2)
+texture = ExtResource("5_yibrq")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Terrain/Tanah2"]
+position = Vector2(-1, 3)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Terrain/Tanah2"]
+position = Vector2(88, 4)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Terrain/Tanah2"]
+position = Vector2(-183, 2)
+texture = ExtResource("6_gsrt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Tanah2"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")
+
+[node name="Tanah3" type="StaticBody2D" parent="Terrain"]
+position = Vector2(29, 424)
+
+[node name="GroundEarth" type="Sprite2D" parent="Terrain/Tanah3"]
+position = Vector2(-90, 1)
+texture = ExtResource("5_yibrq")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Terrain/Tanah3"]
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Terrain/Tanah3"]
+position = Vector2(88, 0)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Terrain/Tanah3"]
+position = Vector2(-183, 2)
+texture = ExtResource("6_gsrt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Tanah3"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")
+
+[node name="Tanah4" type="StaticBody2D" parent="Terrain"]
+position = Vector2(630, 440)
+
+[node name="GroundEarth" type="Sprite2D" parent="Terrain/Tanah4"]
+position = Vector2(-93, 2)
+texture = ExtResource("5_yibrq")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Terrain/Tanah4"]
+position = Vector2(-1, 3)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Terrain/Tanah4"]
+position = Vector2(88, 4)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Terrain/Tanah4"]
+position = Vector2(-183, 2)
+texture = ExtResource("6_gsrt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Tanah4"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")
+
+[node name="Tanah5" type="StaticBody2D" parent="Terrain"]
+position = Vector2(1132, 741)
+
+[node name="GroundEarth" type="Sprite2D" parent="Terrain/Tanah5"]
+position = Vector2(-90, 1)
+texture = ExtResource("5_yibrq")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Terrain/Tanah5"]
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Terrain/Tanah5"]
+position = Vector2(88, 0)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Terrain/Tanah5"]
+position = Vector2(-183, 2)
+texture = ExtResource("6_gsrt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Tanah5"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")
+
+[node name="Tanah6" type="StaticBody2D" parent="Terrain"]
+position = Vector2(1134, 155)
+
+[node name="GroundEarth" type="Sprite2D" parent="Terrain/Tanah6"]
+position = Vector2(-93, 2)
+texture = ExtResource("5_yibrq")
+
+[node name="GroundEarth1" type="Sprite2D" parent="Terrain/Tanah6"]
+position = Vector2(-1, 3)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth2" type="Sprite2D" parent="Terrain/Tanah6"]
+position = Vector2(88, 4)
+texture = ExtResource("6_gsrt6")
+
+[node name="GroundEarth3" type="Sprite2D" parent="Terrain/Tanah6"]
+position = Vector2(-183, 2)
+texture = ExtResource("6_gsrt6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Terrain/Tanah6"]
+position = Vector2(-47, -1)
+shape = SubResource("RectangleShape2D_anf8t")

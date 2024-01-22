@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://dqamfllx87qu3"]
+
+[ext_resource type="Script" path="res://BunnyBehavior.gd" id="1_hhi0w"]
+[ext_resource type="Texture2D" uid="uid://cp1bdexmnwvxn" path="res://kenney_jumper-pack/PNG/Players/bunny1_ready.png" id="1_iuoq8"]
+[ext_resource type="Texture2D" uid="uid://cpphbagjwpkq0" path="res://kenney_jumper-pack/PNG/Players/bunny1_jump.png" id="2_03c08"]
+[ext_resource type="Texture2D" uid="uid://jbhvc6qtuxuk" path="res://kenney_jumper-pack/PNG/Environment/ground_grass.png" id="3_yc5kb"]
+[ext_resource type="Texture2D" uid="uid://ivgtrm1hhasl" path="res://kenney_jumper-pack/PNG/Players/bunny1_walk1.png" id="4_y4jcb"]
+[ext_resource type="Texture2D" uid="uid://cknyatuycbq43" path="res://kenney_jumper-pack/PNG/Players/bunny1_walk2.png" id="5_gri07"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uiyid"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_03c08")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_iuoq8")
+}],
+"loop": true,
+"name": &"ready",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_y4jcb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gri07")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5wafv"]
+radius = 65.0
+height = 210.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_datn8"]
+size = Vector2(378, 88)
+
+[node name="Root" type="Node2D"]
+
+[node name="Bunny" type="CharacterBody2D" parent="."]
+position = Vector2(143, 130)
+script = ExtResource("1_hhi0w")
+speed = null
+
+[node name="BunnySprite" type="AnimatedSprite2D" parent="Bunny"]
+sprite_frames = SubResource("SpriteFrames_uiyid")
+animation = &"walking"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bunny"]
+shape = SubResource("CapsuleShape2D_5wafv")
+
+[node name="Tanah" type="StaticBody2D" parent="."]
+position = Vector2(223, 373)
+
+[node name="GroundGrass" type="Sprite2D" parent="Tanah"]
+texture = ExtResource("3_yc5kb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tanah"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_datn8")
+
+[node name="Tanah2" type="StaticBody2D" parent="."]
+position = Vector2(595, 456)
+
+[node name="GroundGrass" type="Sprite2D" parent="Tanah2"]
+texture = ExtResource("3_yc5kb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tanah2"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_datn8")
+
+[node name="Tanah3" type="StaticBody2D" parent="."]
+position = Vector2(927, 562)
+
+[node name="GroundGrass" type="Sprite2D" parent="Tanah3"]
+texture = ExtResource("3_yc5kb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tanah3"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_datn8")

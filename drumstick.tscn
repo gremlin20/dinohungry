@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://cp4b7pbf5577h"]
+
+[ext_resource type="Texture2D" uid="uid://jpw6nhirm6yf" path="res://Drumstick/frame_00001.png" id="1_8h7es"]
+[ext_resource type="Script" path="res://Drumstick.gd" id="1_td80k"]
+[ext_resource type="Texture2D" uid="uid://dxa3baw4tpe6c" path="res://Drumstick/frame_00002.png" id="2_hug1v"]
+[ext_resource type="Texture2D" uid="uid://cjjc0l78fvajq" path="res://Drumstick/frame_00003.png" id="3_4fo3a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4sjwj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8h7es")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_hug1v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_4fo3a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3hy4f"]
+radius = 40.8044
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_td80k")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 8.00001)
+scale = Vector2(0.15, 0.133333)
+sprite_frames = SubResource("SpriteFrames_4sjwj")
+autoplay = "default"
+frame_progress = 0.356007
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 1)
+shape = SubResource("CircleShape2D_3hy4f")
+
+[connection signal="body_entered" from="." to="." method="_makan_drumstick"]

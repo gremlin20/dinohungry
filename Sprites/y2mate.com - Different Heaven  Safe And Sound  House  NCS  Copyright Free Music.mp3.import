@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bx865uyhios1"
+path="res://.godot/imported/y2mate.com - Different Heaven  Safe And Sound  House  NCS  Copyright Free Music.mp3-ba9843d4f0a62967e4f59c1133d26dc6.mp3str"
+
+[deps]
+
+source_file="res://Sprites/y2mate.com - Different Heaven  Safe And Sound  House  NCS  Copyright Free Music.mp3"
+dest_files=["res://.godot/imported/y2mate.com - Different Heaven  Safe And Sound  House  NCS  Copyright Free Music.mp3-ba9843d4f0a62967e4f59c1133d26dc6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

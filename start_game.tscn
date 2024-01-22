@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://m526n42tq1f0"]
+
+[ext_resource type="Script" path="res://start_game.gd" id="1_cmx80"]
+
+[node name="StartGame" type="Node2D"]
+script = ExtResource("1_cmx80")
+
+[node name="Exit" type="Button" parent="."]
+offset_left = 358.0
+offset_top = 218.0
+offset_right = 714.0
+offset_bottom = 355.0
+text = "Exit"
+
+[node name="Play" type="Button" parent="."]
+offset_left = 359.0
+offset_top = 63.0
+offset_right = 715.0
+offset_bottom = 200.0
+text = "Play"
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

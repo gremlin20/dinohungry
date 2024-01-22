@@ -1,0 +1,104 @@
+[gd_scene load_steps=13 format=3 uid="uid://cc6kv7qsohnhq"]
+
+[ext_resource type="PackedScene" uid="uid://crbr6yuvek44j" path="res://map.tscn" id="1_664ob"]
+[ext_resource type="Script" path="res://game_manager.gd" id="1_j60eq"]
+[ext_resource type="PackedScene" uid="uid://cm7xves2tm8tb" path="res://dino.tscn" id="2_1y5im"]
+[ext_resource type="Texture2D" uid="uid://cxbifnh76hta5" path="res://asset/Dino2.png" id="2_ob4do"]
+[ext_resource type="PackedScene" uid="uid://cp4b7pbf5577h" path="res://drumstick.tscn" id="3_f0pub"]
+[ext_resource type="FontFile" uid="uid://ddr8fyk8paeve" path="res://asset/ARCADECLASSIC.TTF" id="5_brxl6"]
+[ext_resource type="PackedScene" uid="uid://dfiqvajnc0w5a" path="res://portal.tscn" id="7_5s5wo"]
+[ext_resource type="AudioStream" uid="uid://bx865uyhios1" path="res://Sprites/y2mate.com - Different Heaven  Safe And Sound  House  NCS  Copyright Free Music.mp3" id="8_kp5uv"]
+[ext_resource type="PackedScene" uid="uid://r5yfeabnyiqo" path="res://enemy.tscn" id="9_cvjcn"]
+[ext_resource type="Script" path="res://enemy.gd" id="10_hn5v5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2inmq"]
+font = ExtResource("5_brxl6")
+font_size = 50
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nfx2v"]
+size = Vector2(6424, 330)
+
+[node name="Root" type="Node2D"]
+script = ExtResource("1_j60eq")
+gbrNyawa = ExtResource("2_ob4do")
+metadata/_edit_horizontal_guides_ = [-876.0, -867.0, 826.0]
+metadata/_edit_vertical_guides_ = [-1253.0, -1259.0, -1234.0, 1667.0, -1505.0]
+
+[node name="Map" parent="." instance=ExtResource("1_664ob")]
+position = Vector2(43, -2)
+
+[node name="ParallaxBackground" parent="Map" index="0"]
+layer = -105
+
+[node name="Tanah" parent="Map/Terrain" index="0"]
+position = Vector2(-954, 715)
+
+[node name="Dino" parent="." instance=ExtResource("2_1y5im")]
+position = Vector2(-1119, 485)
+
+[node name="Drumstick" type="Node2D" parent="."]
+
+[node name="Area2D" parent="Drumstick" instance=ExtResource("3_f0pub")]
+position = Vector2(-952, 557)
+
+[node name="Area2D2" parent="Drumstick" instance=ExtResource("3_f0pub")]
+position = Vector2(-592, 88)
+
+[node name="Area2D3" parent="Drumstick" instance=ExtResource("3_f0pub")]
+position = Vector2(-120, 32)
+
+[node name="Area2D4" parent="Drumstick" instance=ExtResource("3_f0pub")]
+position = Vector2(-432, 88)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 27.0
+offset_top = 15.0
+offset_right = 269.0
+offset_bottom = 92.0
+text = "Score : "
+label_settings = SubResource("LabelSettings_2inmq")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 944.0
+offset_top = 8.0
+offset_right = 1147.0
+offset_bottom = 59.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = 952.0
+offset_top = 8.0
+offset_right = 1150.0
+offset_bottom = 61.0
+
+[node name="Jatuh" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jatuh"]
+position = Vector2(-332, 1069)
+shape = SubResource("RectangleShape2D_nfx2v")
+
+[node name="portal" parent="." instance=ExtResource("7_5s5wo")]
+position = Vector2(1139, 562)
+next_scene_label = "game2"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_kp5uv")
+autoplay = true
+
+[node name="enemy2" parent="." groups=["EnemyGroup"] instance=ExtResource("9_cvjcn")]
+position = Vector2(-536, 456)
+script = ExtResource("10_hn5v5")
+
+[node name="enemy" parent="." groups=["EnemyGroup"] instance=ExtResource("9_cvjcn")]
+position = Vector2(544, 0)
+script = ExtResource("10_hn5v5")
+
+[node name="enemy3" parent="." groups=["EnemyGroup"] instance=ExtResource("9_cvjcn")]
+position = Vector2(-72, 280)
+script = ExtResource("10_hn5v5")
+
+[connection signal="dinoterkenahit" from="Dino" to="." method="_on_dino_dinoterkenahit"]
+[connection signal="body_entered" from="Jatuh" to="." method="_on_jatuh_body_entered"]
+
+[editable path="Map"]
